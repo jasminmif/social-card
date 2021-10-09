@@ -31,7 +31,6 @@ export default function Button({ variant, children, ...props }: ButtonProps) {
   const { classes, icon } = btnVariants[variant];
   return (
     <button
-      {...props}
       className={clsx(
         `h-8 border-2 px-3 py-1 sm:px-3 sm:py-1 text-xs font-semibold sm:text-sm rounded flex items-center
         group transition-all transition-width w-10 hover:w-20 ease-in-out duration-200 delay-100 hover:delay-75
@@ -39,6 +38,7 @@ export default function Button({ variant, children, ...props }: ButtonProps) {
         `,
         classes
       )}
+      {...props}
     >
       {icon && <span>{icon}</span>}
       <span className="group-hover:opacity-100 opacity-0 transition-all ease-in-out duration-200 delay-100">

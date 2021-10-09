@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export interface IUsers {
+export interface IUser {
   id: number;
   profilePicUrl: string;
   fullName: string;
@@ -16,6 +16,6 @@ export default class UserService {
   url = "https://my-json-server.typicode.com/jasminmif/social-card/users";
 
   fetchUsers() {
-    return axios.get<IUsers[]>(this.url);
+    return axios.get<IUser[]>(this.url);
   }
 }

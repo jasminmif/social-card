@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import UserService, { IUsers } from "../util/userService";
+import UserService, { IUser } from "../util/userService";
 import UserProfile from "./UserProfile";
 
 const userService = new UserService();
 
 export default function UserList() {
-  const [users, setUsers] = useState<IUsers[]>([]);
+  const [users, setUsers] = useState<IUser[]>([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -15,17 +15,17 @@ export default function UserList() {
     fetchUsers();
   }, []);
 
+  const onUserChange = (user: IUser) => {
+    console.log("USER HERE", user)
+  }
+
   return (
     <div className="flex flex-col space-y-10">
       {users.map((user) => (
         <UserProfile
           key={user.id}
-          profilePictureUrl={user.profilePicUrl}
-          fullName="Lois Zemlak"
-          email="Maida.Becker98@gmail.com"
-          address="Cremin Plains St, Apt.462, North Connortown, 99373"
-          phoneNo="(293) 414-8005"
-          website="marianne.org"
+          user={user}
+          onUserChange={onUserChange}
         />
       ))}
     </div>
