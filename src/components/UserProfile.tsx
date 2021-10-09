@@ -34,13 +34,13 @@ export default function UserProfile({
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setEditMode(false);
-  }
+  };
 
   const handleSave = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     // propagate event to main windows
     setEditMode(false);
-  }
+  };
 
   return (
     <UserProfileContainer
@@ -53,7 +53,7 @@ export default function UserProfile({
       }
     >
       <form className="flex-1 flex flex-col justify-between">
-        <div className="flex flex-col sm:flex-row flex-col-reverse justify-between items-center pb-3 sm:pb-0">
+        <div className="flex flex-col-reverse sm:flex-row justify-between items-center pb-3 sm:pb-0">
           {editMode ? (
             <Input name="fullName" placeholder="Full Name" variant="md" />
           ) : (
@@ -64,15 +64,15 @@ export default function UserProfile({
 
           {editMode ? (
             <div className="flex flex-row space-x-3 mb-2 sm:mb-0">
-              <Button variant="save" onClick={e => handleSave(e)}>
+              <Button variant="save" onClick={(e) => handleSave(e)}>
                 Save
               </Button>
-              <Button variant="cancel" onClick={e => handleCancel(e)}>
+              <Button variant="cancel" onClick={(e) => handleCancel(e)}>
                 Cancel
               </Button>
             </div>
           ) : (
-            <Button variant="edit" onClick={_e => setEditMode(true)}>
+            <Button variant="edit" onClick={(_e) => setEditMode(true)}>
               Edit
             </Button>
           )}
@@ -107,7 +107,7 @@ export default function UserProfile({
             )}
           </DescriptionRow>
         </div>
-        
+
         <div className="flex items-center overflow-clip overflow-hidden">
           <div className="pr-3">
             <CompanyLogo />

@@ -1,6 +1,6 @@
 /**
  * Util function which receives a full name and returns the initials only
- * @param fullName 
+ * @param fullName
  * @returns @type {string}
  */
 export const getInitialsOnly = (fullName: string) => {
