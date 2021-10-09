@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "profilePicUrl": "https://s3-alpha-sig.figma.com/img/f7ee/d1cb/c3838a1de22573ff3964406d92b0f49e?Expires=1634515200&Signature=UyGI52zK2bOjlfsu9~5~s6xBzMH02CAZr3NZlfLaMZU~VhURAwBvt0XDDYzwtbKeOERq0pf7nZEg9qj3YsgQwlcCnFpiYzdUkOXLEW~KHrG3konhfblZrbrLj4mFi8of3vbL7WlNB3ytFuGgIdwF8fWwzgDzQW~lT7zJjpWO13Ruv9dVSJiy-Va2BL8FvUc3f-Mj7W5lr9E41w66e5kl3Trph-OVR2A70AdGid2uqS0bMAR28aHYxi29Este6iN14Etb09XIa2NEGuVDoW-8SbixASJUKrYhnOZjVb~w1hNAl9LWLHYs-J~Ut-ES8w8H~yD~zcrwkShD7Bxmtfwj2w__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      "fullName": "Lois Zemlak",
+      "email": "Maida.Becker98@gmail.com",
+      "address": "Cremin Plains St, Apt.462, North Connortown, 99373",
+      "phoneNo": "(293) 414-8005",
+      "website": "marianne.org",
+      "companyName": "McKenzie LLC",
+      "companyDesc": "Quality-focused value-added synergy"
+    }
+  ]
+}
