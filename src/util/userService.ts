@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export interface IUsers {
+  id: number;
   profilePicUrl: string;
   fullName: string;
   email: string;

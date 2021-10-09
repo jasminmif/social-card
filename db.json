@@ -10,6 +10,17 @@
       "website": "marianne.org",
       "companyName": "McKenzie LLC",
       "companyDesc": "Quality-focused value-added synergy"
+    },
+    {
+      "id": 2,
+      "profilePicUrl": "",
+      "fullName": "John Doe",
+      "email": "john_doe@gmail.com",
+      "address": "86 Cramlin str, Idaho, PL, 02928",
+      "phoneNo": "(293) 441-8015",
+      "website": "wagner.com",
+      "companyName": "Wagner LLC",
+      "companyDesc": "Nisi excepteur ad consequat enim."
     }
   ]
 }

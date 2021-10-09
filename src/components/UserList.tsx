@@ -19,7 +19,7 @@ export default function UserList() {
     <div className="flex flex-col space-y-10">
       {users.map((user) => (
         <UserProfile
-          key={2}
+          key={user.id}
           profilePictureUrl={user.profilePicUrl}
           fullName="Lois Zemlak"
           email="Maida.Becker98@gmail.com"
