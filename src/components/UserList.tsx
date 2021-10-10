@@ -1,33 +1,31 @@
-import { useEffect, useState } from "react";
-import UserService, { IUser } from "../util/userService";
+import { observer } from "mobx-react-lite";
+import { useEffect } from "react";
+import { useStore } from "../store";
+import { IUser } from "../store/UserStore";
 import UserProfile from "./UserProfile";
 
-const userService = new UserService();
-
-export default function UserList() {
-  const [users, setUsers] = useState<IUser[]>([]);
+function UserList() {
+  const { users, isLoading, fetchUsers, updateUser } = useStore().userStore;
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      const { data } = await userService.fetchUsers();
-      setUsers(data);
-    };
     fetchUsers();
-  }, []);
+  }, [fetchUsers]);
 
   const onUserChange = (user: IUser) => {
-    console.log("USER HERE", user)
+    updateUser(user);
+  };
+
+  if (isLoading) {
+    return <div>Loading results...</div>;
   }
 
   return (
     <div className="flex flex-col space-y-10">
       {users.map((user) => (
-        <UserProfile
-          key={user.id}
-          user={user}
-          onUserChange={onUserChange}
-        />
+        <UserProfile key={user.id} user={user} onUserChange={onUserChange} />
       ))}
     </div>
   );
 }
+
+export default observer(UserList);

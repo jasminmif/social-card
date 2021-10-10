@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { IUser } from "../store/UserStore";
 import { getInitialsOnly } from "../util/ultils";
-import { IUser } from "../util/userService";
 import CompanyLogo from "./CompanyLogo";
 import DescriptionRow from "./DescriptionRow";
 import ContactsIcon from "./icons/ContactsIcon";
