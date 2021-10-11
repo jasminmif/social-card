@@ -48,7 +48,6 @@ export const UserStore = types
 			let lastUserId = self.users.slice(-1).pop()?.id;
 			const newUserId = lastUserId ? lastUserId + 1 : 1;
 			userData.id = newUserId;
-
-			self.users.push(userData);
+			self.users = cast([userData, ...self.users]);
 		},
 	}));

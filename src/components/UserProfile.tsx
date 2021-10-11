@@ -182,7 +182,7 @@ export default function UserProfile({ user, onUserChange }: UserProfileProps) {
 					<div className="flex-1 flex flex-col text-gray-500 text-xs sm:text-sm leading-tight w-1">
 						<div className="font-bold">{companyName}</div>
 						<div className="flex-1 min-w-0 overflow-hidden overflow-ellipsis whitespace-nowrap">
-							{companyDesc} askdjhaskjd aks d
+							{companyDesc}
 						</div>
 					</div>
 				</div>
