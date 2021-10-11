@@ -1,5 +1,3 @@
-import "./App.css";
-import Button from "./components/ui/Button";
 import UserList from "./components/UserList";
 import { Provider } from "./store";
 

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useStore } from "../store";
 import { IUser } from "../store/UserStore";
 import Button from "./ui/Button";
+import Loader from "./ui/Loader";
 import UserProfile from "./UserProfile";
 
 function UserList() {
@@ -19,25 +20,27 @@ function UserList() {
 
 	const onAddUser = () => {
 		addUser({
-			fullName: 'New User',
-			profilePicUrl: '',
-			email: '',
-			address: '',
-			phoneNo: '',
-			website: '',
-			companyName: '',
-			companyDesc: '',
+			fullName: "New User",
+			profilePicUrl: "",
+			email: "",
+			address: "",
+			phoneNo: "",
+			website: "",
+			companyName: "",
+			companyDesc: "",
 		});
-	}
+	};
 
 	if (isLoading) {
-		return <div>Loading results...</div>;
+		return <Loader>Loading users...</Loader>;
 	}
 
 	return (
 		<div>
 			<div className="mb-3">
-				<Button variant="add" onClick={onAddUser}>Add user</Button>
+				<Button variant="add" onClick={onAddUser}>
+					Add user
+				</Button>
 			</div>
 			<div className="flex flex-col space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-6">
 				{users.map((user) => (
