@@ -4,8 +4,8 @@
  * @returns @type {string}
  */
 export const getInitialsOnly = (fullName: string) => {
-  return fullName
-    .split(" ")
-    .map((char) => char[0])
-    .join("");
+	return fullName
+		.split(" ")
+		.map((char) => char[0])
+		.join("");
 };

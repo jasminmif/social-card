@@ -1,13 +1,9 @@
 import { ReactNode } from "react";
 
 interface BaseIconProps {
-  children: ReactNode
+	children: ReactNode;
 }
 
 export default function BaseIcon({ children }: BaseIconProps) {
-  return (
-    <span className="flex items-center h-full">
-      {children}
-    </span>
-  );
+	return <span className="flex items-center h-full">{children}</span>;
 }
