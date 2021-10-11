@@ -27,7 +27,7 @@ export default function ProfilePicture({
       )}
       <div
         className={clsx(
-          "absolute top-0 bottom-0 left-0 right-0 text-sm sm:text-base flex items-center justify-center text-center opacity-0 bg-gray-900 bg-opacity-75 rounded-full text-white text-opacity-80 transition-opacity ease-in-out duration-300 cursor-pointer",
+          "absolute top-0 bottom-0 left-0 right-0 text-sm sm:text-base flex items-center justify-center text-center opacity-0 bg-gray-900 bg-opacity-75 rounded-full text-white text-opacity-80 transition-opacity ease-in-out duration-300 cursor-pointer hover:opacity-100",
           editMode && "opacity-100"
         )}
       >

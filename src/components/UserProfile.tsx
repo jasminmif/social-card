@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IUser } from "../store/UserStore";
 import { getInitialsOnly } from "../util/ultils";
-import CompanyLogo from "./CompanyLogo";
+import CompanyLogo from "./icons/CompanyLogo";
 import DescriptionRow from "./DescriptionRow";
 import ContactsIcon from "./icons/ContactsIcon";
 import GlobeIcon from "./icons/GlobeIcon";
@@ -76,6 +76,7 @@ export default function UserProfile({ user, onUserChange }: UserProfileProps) {
       phoneNo: formData.phoneNo,
       website: formData.website,
     };
+    
     onUserChange(data);
     setEditMode(false);
   };
