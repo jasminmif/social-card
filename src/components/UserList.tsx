@@ -20,7 +20,7 @@ function UserList() {
   }
 
   return (
-    <div className="flex flex-col space-y-10">
+    <div className="flex flex-col space-y-10 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-6">
       {users.map((user) => (
         <UserProfile key={user.id} user={user} onUserChange={onUserChange} />
       ))}

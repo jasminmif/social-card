@@ -12,10 +12,19 @@ import Button from "./ui/Button";
 import Input from "./ui/Input";
 import Link from "./ui/Link";
 import UserProfileContainer from "./UserProfileContainer";
+import { useForm } from "react-hook-form";
 
 interface UserProfileProps {
   user: IUser;
   onUserChange: (user: IUser) => void;
+}
+
+interface IFormData {
+  fullName: string;
+  email: string;
+  address: string;
+  phoneNo: string;
+  website: string;
 }
 
 export default function UserProfile({ user, onUserChange }: UserProfileProps) {
@@ -30,10 +39,23 @@ export default function UserProfile({ user, onUserChange }: UserProfileProps) {
     companyName,
     companyDesc,
   } = user;
+
+  const defaultValues = {
+    fullName,
+    email,
+    address,
+    phoneNo,
+    website,
+  };
+
+  const { register, handleSubmit, reset } = useForm<IFormData>({
+    defaultValues,
+  });
   const [editMode, setEditMode] = useState(false);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    reset(defaultValues);
     setEditMode(false);
   };
 
@@ -42,21 +64,18 @@ export default function UserProfile({ user, onUserChange }: UserProfileProps) {
     setEditMode(true);
   };
 
-  const handleSubmit = (e: React.MouseEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const target = e.target as any;
+  const onSubmit = (formData: IFormData) => {
     const data = {
       id,
       companyName,
       companyDesc,
       profilePicUrl,
-      fullName: target.fullName.value,
-      email: target.email.value,
-      address: target.address.value,
-      phoneNo: target.phoneNo.value,
-      website: target.website.value,
+      fullName: formData.fullName,
+      email: formData.email,
+      address: formData.address,
+      phoneNo: formData.phoneNo,
+      website: formData.website,
     };
-
     onUserChange(data);
     setEditMode(false);
   };
@@ -73,19 +92,17 @@ export default function UserProfile({ user, onUserChange }: UserProfileProps) {
     >
       <form
         className="flex-1 flex flex-col justify-between"
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex flex-col-reverse sm:flex-row justify-between items-center pb-3 sm:pb-0">
           {editMode ? (
             <Input
-              name="fullName"
               placeholder="Full Name"
               variant="md"
-              value={fullName}
-              onChange={(e) => e} // I am using this to prevent React throwing an error since im not using a Form handler.
+              {...register("fullName")}
             />
           ) : (
-            <h1 className="font-dm-serif text-2xl sm:text-3xl text-gray-900">
+            <h1 className="font-dm-serif text-2xl sm:text-3xl lg:text-2xl xl:text-3xl text-gray-900">
               {fullName}
             </h1>
           )}
@@ -109,64 +126,46 @@ export default function UserProfile({ user, onUserChange }: UserProfileProps) {
             </Button>
           )}
         </div>
-        <div className="space-y-3 sm:space-y-2 font-open-sans text-sm mb-7 sm:mb-0 leading-tight">
+        <div className="space-y-3 sm:space-y-2 font-open-sans text-sm lg:text-xs xl:text-sm mb-7 sm:mb-0 leading-tight overflow-hidden">
           <DescriptionRow icon={<MailIcon />}>
             {editMode ? (
-              <Input
-                name="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => e.target.value}
-              />
+              <Input placeholder="Email" {...register("email")} />
             ) : (
               <Link text={email} type="email" />
             )}
           </DescriptionRow>
           <DescriptionRow icon={<ContactsIcon />}>
             {editMode ? (
-              <Input
-                name="address"
-                placeholder="Address"
-                value={address}
-                onChange={(e) => e}
-              />
+              <Input placeholder="Address" {...register("address")} />
             ) : (
               address
             )}
           </DescriptionRow>
           <DescriptionRow icon={<PhoneNumberIcon />}>
             {editMode ? (
-              <Input
-                name="phoneNo"
-                placeholder="Phone number"
-                value={phoneNo}
-                onChange={(e) => e}
-              />
+              <Input placeholder="Phone number" {...register("phoneNo")} />
             ) : (
               <Link text={phoneNo} type="phone" />
             )}
           </DescriptionRow>
           <DescriptionRow icon={<GlobeIcon />}>
             {editMode ? (
-              <Input
-                name="website"
-                placeholder="Website"
-                value={website}
-                onChange={(e) => e}
-              />
+              <Input placeholder="Website" {...register("website")} />
             ) : (
               <Link text={website} type="link" className="text-blue-500" />
             )}
           </DescriptionRow>
         </div>
 
-        <div className="flex items-center overflow-clip overflow-hidden">
-          <div className="pr-3">
+        <div className="flex items-center">
+          <div className="mr-3">
             <CompanyLogo />
           </div>
-          <div className="flex flex-col text-gray-500 text-xs sm:text-sm leading-tight">
+          <div className="flex-1 flex flex-col text-gray-500 text-xs sm:text-sm leading-tight w-1">
             <div className="font-bold">{companyName}</div>
-            <div className="flex-1 sm:whitespace-nowrap">{companyDesc}</div>
+            <div className="flex-1 min-w-0 overflow-hidden overflow-ellipsis whitespace-nowrap">
+              {companyDesc} askdjhaskjd aks d
+            </div>
           </div>
         </div>
       </form>
