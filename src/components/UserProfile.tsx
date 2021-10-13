@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { IUser } from "../store/UserStore";
 import { getInitialsOnly } from "../util/ultils";
 import CompanyLogo from "./icons/CompanyLogo";
@@ -27,7 +27,7 @@ interface IFormData {
 	website: string;
 }
 
-export default function UserProfile({ user, onUserChange }: UserProfileProps) {
+export const UserProfile = memo(({ user, onUserChange }: UserProfileProps) => {
 	const {
 		id,
 		profilePicUrl,
@@ -189,4 +189,4 @@ export default function UserProfile({ user, onUserChange }: UserProfileProps) {
 			</form>
 		</UserProfileContainer>
 	);
-}
+});

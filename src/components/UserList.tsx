@@ -1,10 +1,10 @@
 import { observer } from "mobx-react-lite";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useStore } from "../store";
 import { IUser } from "../store/UserStore";
 import Button from "./ui/Button";
 import Loader from "./ui/Loader";
-import UserProfile from "./UserProfile";
+import { UserProfile } from "./UserProfile";
 
 function UserList() {
 	const { users, isLoading, fetchUsers, updateUser, addUser } =
@@ -14,9 +14,9 @@ function UserList() {
 		fetchUsers();
 	}, [fetchUsers]);
 
-	const onUserChange = (user: IUser) => {
+	const onUserChange = useCallback((user: IUser) => {
 		updateUser(user);
-	};
+	}, [updateUser]);
 
 	const onAddUser = () => {
 		addUser({
