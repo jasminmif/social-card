@@ -14,9 +14,12 @@ function UserList() {
 		fetchUsers();
 	}, [fetchUsers]);
 
-	const onUserChange = useCallback((user: IUser) => {
-		updateUser(user);
-	}, [updateUser]);
+	const onUserChange = useCallback(
+		(user: IUser) => {
+			updateUser(user);
+		},
+		[updateUser]
+	);
 
 	const onAddUser = () => {
 		addUser({
